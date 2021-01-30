@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/.idea.GGJ2021JuanAndTheMellowMelons.iml
+/modules.xml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../../:\GamesJam\JuanAndTheMellowMelons2ElectricBoogaloo\GGJ2021JuanAndTheMellowMelons\.idea\.idea.GGJ2021JuanAndTheMellowMelons\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
