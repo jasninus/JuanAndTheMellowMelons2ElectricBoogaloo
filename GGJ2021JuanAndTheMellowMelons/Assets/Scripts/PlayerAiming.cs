@@ -8,12 +8,12 @@ public class PlayerAiming : MonoBehaviour
     [SerializeField] private GameObject aimer;
     public string aimerName;
 
-    private Vector3 aimerPos()
+    static public Vector3 AimerPos()
     {
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity) && GameObject.FindGameObjectWithTag("grounded"))
+        if (Physics.Raycast(ray, out hit))
         {
 
             //Debug.Log(hit.point);
@@ -57,10 +57,15 @@ public class PlayerAiming : MonoBehaviour
     //Call this function to run the aimer
     public void PlayerAim()
     {
-        Vector3 aimingPos = aimerPos();
+        Vector3 aimingPos = AimerPos();
         SpawnAimer(aimingPos);
         if (AimerFound()) MoveAimer(aimingPos, instancedAimer);
         if (AimerFound()) DestoryAimer(instancedAimer);
+    }
+
+    private void Update()
+    {
+        PlayerAim();
     }
 
 }
