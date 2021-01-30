@@ -20,7 +20,6 @@ public class Enemy_Attack : StateMachineBehaviour
     {
         if (!enemyScript.IsInRange)
         {
-            attack.StopCoroutine(attack.Shooting());
             animator.SetTrigger("Stop_Attack");
         }
     }
@@ -28,7 +27,7 @@ public class Enemy_Attack : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        attack.StopCoroutine(attack.Shooting());
+        attack.StopAllCoroutines();
         animator.ResetTrigger("Chase_Trigger");
     }
     
