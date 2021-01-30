@@ -3,15 +3,27 @@ using UnityEngine;
 public abstract class Spell : MonoBehaviour
 {
     [SerializeField] protected float manaCost, upcastCost, cooldown;
-    private float lastCastTime;
+    private float remainingCooldown, cooldownReductionModifier = 1;
+
+    public float CooldownReductionModifier
+    {
+        get => cooldownReductionModifier;
+        set => cooldownReductionModifier = value;
+    }
 
     public void TryCast(SpellCaster caster, float power)
     {
-        if (lastCastTime + cooldown <= Time.time && caster.Mana >= GetManaCost(power))
+        if (remainingCooldown <= 0 && caster.Mana >= GetManaCost(power))
         {
             Cast(caster, power);
-            lastCastTime = Time.time;
+            remainingCooldown = cooldown;
         }
+    }
+
+    protected void Update()
+    {
+        remainingCooldown -= Time.deltaTime * cooldownReductionModifier;
+        Debug.Log("Decreasing cooldown");
     }
 
     protected virtual float GetManaCost(float power) => manaCost + upcastCost * power;

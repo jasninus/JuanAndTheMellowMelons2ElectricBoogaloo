@@ -47,7 +47,8 @@ MonoBehaviour:
   manaCost: 10
   upcastCost: 5
   cooldown: 5
-  fireballProjectile: {fileID: 226320160460315330, guid: d58d95e8fa3e9fc4ebedf6b9f2985c37, type: 3}
+  fireballProjectile: {fileID: 226320160460315330, guid: d58d95e8fa3e9fc4ebedf6b9f2985c37,
+    type: 3}
   projectileSpeed: 15
 --- !u!114 &9151127685810599047
 MonoBehaviour:
@@ -64,3 +65,7 @@ MonoBehaviour:
   manaCost: 10
   upcastCost: 10
   cooldown: 1
+  speedIncreaseDuration: 4
+  spellCooldownReductionDuration: 3
+  speedIncrease: 5
+  hasteCooldownReductionModifier: 0.5
