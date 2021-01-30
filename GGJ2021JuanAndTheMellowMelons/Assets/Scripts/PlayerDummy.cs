@@ -42,4 +42,6 @@ public class PlayerDummy : MonoBehaviour, IDamageable, IHealable
 
         Debug.Log($"Dummy player got healed by {amount}");
     }
+
+
 }

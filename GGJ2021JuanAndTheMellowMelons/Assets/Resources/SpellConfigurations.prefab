@@ -48,6 +48,7 @@ MonoBehaviour:
   manaCost: 10
   upcastCost: 5
   cooldown: 5
+  icon: {fileID: 21300000, guid: 0c6d8201a6a3e0f408abe042b18157b4, type: 3}
   fireballProjectile: {fileID: 226320160460315330, guid: d58d95e8fa3e9fc4ebedf6b9f2985c37,
     type: 3}
   projectileSpeed: 15
@@ -66,6 +67,7 @@ MonoBehaviour:
   manaCost: 10
   upcastCost: 10
   cooldown: 1
+  icon: {fileID: 21300000, guid: fc50038b3e65278428854df781579b9a, type: 3}
   speedIncreaseDuration: 4
   spellCooldownReductionDuration: 3
   speedIncrease: 5
@@ -85,4 +87,5 @@ MonoBehaviour:
   manaCost: 20
   upcastCost: 5
   cooldown: 10
+  icon: {fileID: 21300000, guid: cc83dcb57a9d1764cabb3640cdeb7f1f, type: 3}
   healAmount: 20

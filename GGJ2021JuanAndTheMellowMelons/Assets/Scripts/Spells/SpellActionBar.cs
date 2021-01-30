@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class SpellActionBar : MonoBehaviour
 {
     [SerializeField] private string playerTag;
     private SpellCaster playerCaster;
+
+    [SerializeField] private Image highlight;
 
     // Currently assuming that slots has a RectTransform;
     [SerializeField, Header("Slots")] private GameObject slotPrefab;
@@ -44,6 +48,8 @@ public class SpellActionBar : MonoBehaviour
 
             slots.Add(slot.GetComponent<SpellSlot>());
         }
+
+        slots = slots.OrderBy(s => s.GetComponent<RectTransform>().anchoredPosition.x).ToList();
     }
 
     public void PopulateSlotsWithSpells()
@@ -114,6 +120,9 @@ public class SpellActionBar : MonoBehaviour
             return;
         }
 
+        highlight.gameObject.SetActive(true);
+        highlight.transform.parent = slots[slotIndex].transform;
+        highlight.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         playerCaster.SetSpell(slots[slotIndex].Spell);
     }
 }
