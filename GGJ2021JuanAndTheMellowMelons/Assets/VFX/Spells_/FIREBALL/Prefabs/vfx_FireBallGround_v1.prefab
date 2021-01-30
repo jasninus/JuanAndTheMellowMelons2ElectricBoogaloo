@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7962300223177939514}
   - component: {fileID: 7962300223177939517}
   m_Layer: 0
-  m_Name: vfx_MeteorGround_v1
+  m_Name: vfx_FireBallGround_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,12 +83,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7962300223177939516}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee3f07d5ba138c24cb9c8a25749a97c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comet: {fileID: 4683211319628707654, guid: 51170de6d556d7348bce2279b295b7d7, type: 3}
+  fireball: {fileID: 0}
   startPoint: {fileID: 7962300221687174880}
   endPoint: {fileID: 7962300223177939516}
   delay: 0
