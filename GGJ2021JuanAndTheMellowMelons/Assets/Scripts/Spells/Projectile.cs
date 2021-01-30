@@ -31,6 +31,7 @@ public class Projectile : MonoBehaviour
     {
         Shoot(velocity);
         usingGravity = true;
+        this.gravityScale = gravityScale;
     }
 
     private void FixedUpdate()
