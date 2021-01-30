@@ -4,7 +4,8 @@ public class FireballProjectile : Projectile
 {
     [SerializeField] private float explosionRadius;
     [SerializeField] private float centerDamage;
-
+    public bool EnemyHit = false;
+    
     protected override void OnColliderHit(Collision other)
     {
         ApplyDamage();
@@ -32,4 +33,21 @@ public class FireballProjectile : Projectile
     {
         Debug.Log("Particles and shit!");
     }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            EnemyHit = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            EnemyHit = false;
+        }
+    }
+    
 }

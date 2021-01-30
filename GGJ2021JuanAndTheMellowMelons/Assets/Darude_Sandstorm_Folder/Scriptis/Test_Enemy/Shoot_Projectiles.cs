@@ -12,6 +12,7 @@ public class Shoot_Projectiles : MonoBehaviour
     {
         Enemy = GameObject.FindGameObjectWithTag("Enemy");
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        //StartCoroutine(Shooting());
     }
     
     public IEnumerator Shooting()
@@ -19,6 +20,7 @@ public class Shoot_Projectiles : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         projectile = Instantiate(projectile, Enemy.transform.position, Enemy.transform.rotation);
         projectile.Shoot(-projectile.transform.forward * projectileSpeed);
+        StartCoroutine(Shooting());
     }
     
 }
