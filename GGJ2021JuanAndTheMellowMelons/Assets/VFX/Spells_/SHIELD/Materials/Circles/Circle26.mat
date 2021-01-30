@@ -51,4 +51,5 @@ Material:
     - Color_C5E3E077: {r: 0.30982015, g: 0.29742733, b: 1.1835129, a: 1}
     - Vector2_6775196E: {r: 0.1, g: -0.1, b: 0, a: 0}
     - Vector3_F9AA6F6A: {r: 2, g: 2, b: 2, a: 0}
-    - _TintColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TintColor: {r: 1, g: 0.597088, b: 0, a: 1}
+  m_BuildTextureStacks: []

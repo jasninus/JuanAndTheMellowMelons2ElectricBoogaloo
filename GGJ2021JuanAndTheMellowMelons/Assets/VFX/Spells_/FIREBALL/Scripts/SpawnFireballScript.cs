@@ -4,9 +4,9 @@ using UnityEngine;
 
 
 
-public class SpawnMeteorScript : MonoBehaviour {
+public class SpawnFireballScript : MonoBehaviour {
 
-	public GameObject comet;
+	public GameObject fireball;
 	public GameObject startPoint;
 	public GameObject endPoint;
 	public float delay;
@@ -20,12 +20,12 @@ public class SpawnMeteorScript : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            StartCoroutine(SpawnVFX(comet, delay, rateOfFire));
+            StartCoroutine(SpawnVFX(fireball, delay, rateOfFire));
         }
     }
 
 	void Start () {
-		StartCoroutine (SpawnVFX(comet, delay, rateOfFire));
+		StartCoroutine (SpawnVFX(fireball, delay, rateOfFire));
 	}
 
     IEnumerator SpawnVFX (GameObject vfx, float delay, float rateDelay){	
