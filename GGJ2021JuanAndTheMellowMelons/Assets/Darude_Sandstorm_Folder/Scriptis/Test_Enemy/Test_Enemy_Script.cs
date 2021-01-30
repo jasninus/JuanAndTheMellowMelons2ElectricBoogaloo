@@ -17,10 +17,7 @@ public class Test_Enemy_Script : MonoBehaviour, IDamageable
 
     void Update()
     {
-        if (projectile.EnemyHit)
-        {
-            Debug.Log(Health);
-        }
+       
     }
     
     void OnTriggerEnter(Collider other)
@@ -42,6 +39,7 @@ public class Test_Enemy_Script : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         Health -= damage;
+        Debug.Log("hit");
     }
 
 }

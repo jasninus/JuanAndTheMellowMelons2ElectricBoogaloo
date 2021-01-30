@@ -7,14 +7,12 @@ public class S_Test_Player : MonoBehaviour
 
     [SerializeField] private new Transform transform;
     [SerializeField] private new Camera camera;
-
-    private float _rotationSpeed;
+    
     private float _speed;
 
     private void Start()
     {
         _speed = 2;
-        _rotationSpeed = 50;
     }
 
     void Update()
