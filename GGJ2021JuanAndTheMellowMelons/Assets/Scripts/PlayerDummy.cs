@@ -22,6 +22,11 @@ public class PlayerDummy : MonoBehaviour, IDamageable, IHealable
         {
             UnlockedSpells.AddSpell<HealSpell>();
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            UnlockedSpells.AddSpell<MoonBeamSpell>();
+        }
     }
 
     public void TakeDamage(float damage)
