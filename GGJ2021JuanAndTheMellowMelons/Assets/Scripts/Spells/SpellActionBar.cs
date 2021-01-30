@@ -46,7 +46,7 @@ public class SpellActionBar : MonoBehaviour
         }
     }
 
-    private void PopulateSlotsWithSpells()
+    public void PopulateSlotsWithSpells()
     {
         List<Spell> spells = UnlockedSpells.GetUnlockedSpells();
 

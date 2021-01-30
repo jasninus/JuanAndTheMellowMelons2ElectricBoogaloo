@@ -7,6 +7,7 @@ public static class UnlockedSpells
     private static List<Spell> spells = new List<Spell>();
 
     private static string actionBarTag = "ActionBar";
+    private static SpellActionBar actionBar;
 
     private static string spellConfigurationsPath = "SpellConfigurations";
     private static GameObject spellConfigurations, unlockedSpellConfigurations;
@@ -30,11 +31,13 @@ public static class UnlockedSpells
 
         MonoBehaviour copiedSpell = ComponentUtils.AddComponent(unlockedSpellConfigurations, spellConfigurations.GetComponent<T>());
         spells.Add((Spell)copiedSpell);
+        actionBar.PopulateSlotsWithSpells();
     }
 
     private static void SetupSpellConfigurations()
     {
         spellConfigurations = Resources.Load<GameObject>(spellConfigurationsPath);
         unlockedSpellConfigurations = new GameObject();
+        actionBar = GameObject.FindWithTag(actionBarTag).GetComponent<SpellActionBar>();
     }
 }

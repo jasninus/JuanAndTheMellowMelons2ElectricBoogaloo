@@ -6,14 +6,14 @@ public class PlayerDummy : MonoBehaviour, IDamageable
 {
     [SerializeField] private float health = 100;
 
-    private void Awake()
-    {
-        UnlockedSpells.AddSpell<FireballSpell>();
-    }
-
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            UnlockedSpells.AddSpell<FireballSpell>();
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
         {
             UnlockedSpells.AddSpell<HasteSpell>();
         }
