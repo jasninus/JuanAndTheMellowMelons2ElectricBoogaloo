@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Test_Enemy_Script : MonoBehaviour
 {
-
-    [SerializeField] private Transform _enemyTransformtransform;
-    [SerializeField] private Transform _playerTransform;
-    [SerializeField] private Sprite[] _sprite;
-
-    // Start is called before the first frame update
-    void Start()
+    public bool IsInRange = false;
+    
+    void OnTriggerEnter(Collider other)
     {
-        _sprite = gameObject.GetComponent<Sprite[]>();
+        if (other.tag == "Player")
+        {
+            IsInRange = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerExit(Collider other)
     {
-        
+        if (other.tag == "Player")
+        {
+            IsInRange = false;
+        }
     }
 }
