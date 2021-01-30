@@ -4,35 +4,70 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    private Rigidbody ridgedBody;
+    private Rigidbody rigidBody;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private bool grounded;
-    [SerializeField] private float playerVelocity = 6f;
-    [SerializeField] private float speedIncrement = 6f;
-    [SerializeField] private float jumpForce = 12f;
+    [SerializeField] private float baseMoveSpeed = 6f, baseSprintSpeedIncrease = 6f, jumpForce = 12f, groundedCheckRadius = 0.4f;
+    private float moveSpeed, sprintSpeedIncrease;
 
-    // Start is called before the first frame update
+    private bool sprinting;
 
-    void Start() => ridgedBody = GetComponent<Rigidbody>();
+    private void Awake()
+    {
+        moveSpeed = baseMoveSpeed;
+        sprintSpeedIncrease = baseSprintSpeedIncrease;
+    }
 
-    // Update is called once per frame
+    void Start() => rigidBody = GetComponent<Rigidbody>();
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift)) { playerVelocity += speedIncrement; }
-        else if (Input.GetKeyUp(KeyCode.LeftShift)) { playerVelocity -= speedIncrement; }
+        SprintInput();
 
-        float x = Input.GetAxisRaw("Horizontal") * playerVelocity;
-        float y = Input.GetAxisRaw("Vertical") * playerVelocity;
+        float x = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        float y = Input.GetAxisRaw("Vertical") * moveSpeed;
 
-        grounded = Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y-1, transform.position.z), 0.4f, layerMask);
+        grounded = Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), groundedCheckRadius, layerMask);
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
-            ridgedBody.velocity = new Vector3(ridgedBody.velocity.x, jumpForce, ridgedBody.velocity.z);
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
         }
 
         Vector3 movePos = transform.right * x + transform.forward * y;
-        Vector3 newMovePos = new Vector3(movePos.x, ridgedBody.velocity.y, movePos.z);
-        ridgedBody.velocity = newMovePos;
+        Vector3 newMovePos = new Vector3(movePos.x, rigidBody.velocity.y, movePos.z);
+        rigidBody.velocity = newMovePos;
+    }
+
+    /// <summary>
+    /// Increases speed by a percentage of base speed
+    /// </summary>
+    /// <param name="percentage">The percentage of base speed to increase speed with [0, 1]</param>
+    public void IncreaseSpeed(float percentage)
+    {
+        moveSpeed += baseMoveSpeed * percentage;
+        sprintSpeedIncrease += baseSprintSpeedIncrease * percentage;
+    }
+
+    /// <summary>
+    /// Decreases speed by a percentage of base speed
+    /// </summary>
+    /// <param name="percentage">The percentage of base speed to decrease speed with [0, 1]</param>
+    public void DecreaseSpeed(float percentage)
+    {
+        moveSpeed -= baseMoveSpeed * percentage;
+        sprintSpeedIncrease -= baseSprintSpeedIncrease * percentage;
+    }
+
+    public void ResetSpeedModifier()
+    {
+        moveSpeed = baseMoveSpeed;
+        sprintSpeedIncrease = baseSprintSpeedIncrease;
+    }
+
+    private void SprintInput()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift)) { moveSpeed += sprintSpeedIncrease; }
+        else if (Input.GetKeyUp(KeyCode.LeftShift)) { moveSpeed -= sprintSpeedIncrease; }
     }
 }
