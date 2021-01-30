@@ -2,37 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MoonBeamSpell : Spell
 {
+    [SerializeField] private GameObject moonBeamPrefab;
+    [SerializeField] private float moonBeamDuration;
+    [SerializeField] private string aimerName;
 
-    protected override float GetManaCost(float power)
+    private IEnumerator SpawnMoonBeam()
     {
-        return power;
+        GameObject currentMoonBeam = Instantiate(moonBeamPrefab, PlayerAiming.AimerPos(), Quaternion.identity);
+        yield return new WaitForSeconds(moonBeamDuration);
+        Destroy(currentMoonBeam);
     }
 
     protected override void Cast(SpellCaster caster, float power)
     {
-        //aim at area
-        //spawn temp cylinder
-            //confirm spawn damage area for time
-            //cancel temp vanished
-
-
-
-    }
-    
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (GameObject.Find(aimerName)) StartCoroutine(SpawnMoonBeam());
+        else
+        {
+            Debug.Log("fail");
+        }
     }
 
 
