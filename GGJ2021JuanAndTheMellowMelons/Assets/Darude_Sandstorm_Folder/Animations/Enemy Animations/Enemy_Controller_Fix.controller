@@ -296,7 +296,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   enemyRigidbody: {fileID: 0}
   enemyScript: {fileID: 0}
-  speed: 0.1
+  speed: 3
 --- !u!114 &9091754197888274460
 MonoBehaviour:
   m_ObjectHideFlags: 1
