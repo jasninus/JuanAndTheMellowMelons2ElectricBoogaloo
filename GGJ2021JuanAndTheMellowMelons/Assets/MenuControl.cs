@@ -9,6 +9,11 @@ public class MenuControl : MonoBehaviour
     public void ButtonLoadScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
+
+        if (sceneIndex == 1)
+        {
+            SceneManager.LoadScene(3, LoadSceneMode.Additive);
+        }
     }
 
     // Update is called once per frame
