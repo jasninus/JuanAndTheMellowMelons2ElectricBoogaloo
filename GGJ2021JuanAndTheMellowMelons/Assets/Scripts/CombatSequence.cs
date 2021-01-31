@@ -7,6 +7,14 @@ public class CombatSequence : MonoBehaviour
 {
     [SerializeField] private GameObject enemyParent, blockingObjectsParent, rewardItem;
 
+    [SerializeField] private string musicManagerTag = "MusicManager";
+    private MusicManager music;
+
+    private void Awake()
+    {
+        music = GameObject.FindWithTag(musicManagerTag).GetComponent<MusicManager>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
@@ -33,6 +41,7 @@ public class CombatSequence : MonoBehaviour
 
     public void ActivateCombat()
     {
+        music.StartCombatMusic();
         ActivateEnemies();
         SetBlockingObjectsState(true);
     }
@@ -68,6 +77,7 @@ public class CombatSequence : MonoBehaviour
 
     public void DeactivateCombat()
     {
+        music.StopCombatMusic();
         SetBlockingObjectsState(false);
         rewardItem.SetActive(true);
         rewardItem.GetComponent<IActivatable>()?.Activate();

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioSource))]
 public class MusicManager : MonoBehaviour
 {
-    [Tooltip("Array index corresponds to buildIndex for chosen track")]
+    [Tooltip("Array index corresponds to buildIndex for chosen track. Put combat music last")]
     [SerializeField] private AudioClip[] music;
 
     [SerializeField] private float crossfadeTime;
@@ -67,5 +67,15 @@ public class MusicManager : MonoBehaviour
             primaryAudio.volume += Time.deltaTime / crossfadeTime;
             yield return null;
         }
+    }
+
+    public void StartCombatMusic()
+    {
+        ChangeMusicTrack(music.Length - 1);
+    }
+
+    public void StopCombatMusic()
+    {
+        ChangeMusicTrack(SceneManager.GetActiveScene().buildIndex);
     }
 }
