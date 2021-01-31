@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDummy : MonoBehaviour, IDamageable, IHealable
+public class PlayerCore : MonoBehaviour, IDamageable, IHealable
 {
     [SerializeField] private float health = 100;
+
+    private bool invulnerable;
+    public bool Invulnerable
+    {
+        get => invulnerable;
+        set => invulnerable = value;
+    }
 
     private void Update()
     {
@@ -27,10 +34,20 @@ public class PlayerDummy : MonoBehaviour, IDamageable, IHealable
         {
             UnlockedSpells.AddSpell<MoonBeamSpell>();
         }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            UnlockedSpells.AddSpell<ShieldSpell>();
+        }
     }
 
     public void TakeDamage(float damage)
     {
+        if (invulnerable)
+        {
+            return;
+        }
+
         health -= damage;
 
         Debug.Log($"Dummy player took {damage} damage");

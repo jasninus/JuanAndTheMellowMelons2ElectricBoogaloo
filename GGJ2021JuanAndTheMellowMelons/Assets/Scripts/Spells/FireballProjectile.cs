@@ -4,6 +4,7 @@ public class FireballProjectile : Projectile
 {
     [SerializeField] private float explosionRadius;
     [SerializeField] private float centerDamage;
+    [SerializeField] private SpawnFireballScript vfx;
 
     protected override void OnColliderHit(Collision other)
     {
@@ -30,6 +31,6 @@ public class FireballProjectile : Projectile
 
     private void CreateSFX()
     {
-        Debug.Log("Particles and shit!");
+        vfx.SpawnVFX();
     }
 }

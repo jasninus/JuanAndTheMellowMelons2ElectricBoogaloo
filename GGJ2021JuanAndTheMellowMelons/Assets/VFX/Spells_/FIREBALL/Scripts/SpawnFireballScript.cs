@@ -28,7 +28,12 @@ public class SpawnFireballScript : MonoBehaviour {
 		StartCoroutine (SpawnVFX(fireball, delay, rateOfFire));
 	}
 
-    IEnumerator SpawnVFX (GameObject vfx, float delay, float rateDelay){	
+	public void SpawnVFX()
+    {
+		StartCoroutine(SpawnVFX(fireball, delay, rateOfFire));
+	}
+
+	IEnumerator SpawnVFX (GameObject vfx, float delay, float rateDelay){	
 		for (int j = 0; j < waves; j++) { 	
 			yield return new WaitForSeconds (delay);
 			for (int i = 0; i < quantity; i++) {

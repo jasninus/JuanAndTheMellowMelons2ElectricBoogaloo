@@ -27,7 +27,6 @@ public abstract class Spell : MonoBehaviour
     protected void Update()
     {
         remainingCooldown -= Time.deltaTime * cooldownReductionModifier;
-        Debug.Log("Decreasing cooldown");
     }
 
     protected virtual float GetManaCost(float power) => manaCost + upcastCost * power;
