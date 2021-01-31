@@ -1,25 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Test_Enemy_Script : MonoBehaviour, IDamageable
 {
 
-    [SerializeField] private FireballProjectile projectile;
+    [SerializeField] [CanBeNull] private FireballProjectile projectile;
     
     public bool IsInRange = false;
     private float Health = 40;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-       
-    }
-    
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
