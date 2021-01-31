@@ -19,23 +19,24 @@ public class CombatSequence : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            ActivateCombat();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.O))
+    //    {
+    //        ActivateCombat();
+    //    }
+    //}
 
     private void Start()
     {
         DeactivateAllChildren();
+        rewardItem.GetComponent<IActivatable>().AddToCallback(ActivateCombat);
     }
 
     private void DeactivateAllChildren()
     {
-        List<GameObject> toActivate = enemyParent.GetComponentsInChildren<Transform>(true).Select(t => t.gameObject).Skip(1).Concat(blockingObjectsParent.GetComponentsInChildren<Transform>(true).Select(t => t.gameObject).Skip(1)).ToList();
-        toActivate.Add(rewardItem);
+        List<GameObject> toActivate = enemyParent.GetComponentsInChildren<Transform>(true).Select(t => t.gameObject).Skip(1)/*.Concat(blockingObjectsParent.GetComponentsInChildren<Transform>(true).Select(t => t.gameObject).Skip(1))*/.ToList();
+        //toActivate.Add(rewardItem);
 
         foreach (GameObject go in toActivate)
         {
@@ -48,6 +49,7 @@ public class CombatSequence : MonoBehaviour
         music?.StartCombatMusic();
         ActivateEnemies();
         SetBlockingObjectsState(true);
+        Debug.Log("Fight!");
     }
 
     private void ActivateEnemies()

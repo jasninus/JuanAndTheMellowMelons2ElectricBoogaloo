@@ -15,9 +15,9 @@ public class FireballProjectile : Projectile
 
     protected override void OnTriggerHit(Collider other)
     {
-        ApplyDamage();
-        CreateSFX();
-        Destroy(gameObject);
+        //ApplyDamage();
+        //CreateSFX();
+        //Destroy(gameObject);
     }
 
     private void ApplyDamage()

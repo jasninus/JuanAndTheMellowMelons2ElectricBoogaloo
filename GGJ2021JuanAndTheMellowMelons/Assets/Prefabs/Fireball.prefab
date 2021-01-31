@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4115226358533712512}
   - component: {fileID: 226320160460315330}
   - component: {fileID: 5384513387971454531}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5052538852936998282}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -158,6 +158,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 609751976057875360}
     m_Modifications:
+    - target: {fileID: 574890924207392281, guid: 51170de6d556d7348bce2279b295b7d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 1381063544915534806, guid: 51170de6d556d7348bce2279b295b7d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -218,10 +223,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4226929091168372773, guid: 51170de6d556d7348bce2279b295b7d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4683211319628707654, guid: 51170de6d556d7348bce2279b295b7d7,
         type: 3}
       propertyPath: m_Name
       value: vfx_FireBall_v1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683211319628707654, guid: 51170de6d556d7348bce2279b295b7d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4683211319628707654, guid: 51170de6d556d7348bce2279b295b7d7,
         type: 3}
@@ -232,6 +247,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190303367512963451, guid: 51170de6d556d7348bce2279b295b7d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293817331534866698, guid: 51170de6d556d7348bce2279b295b7d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8109167965509868694, guid: 51170de6d556d7348bce2279b295b7d7,
         type: 3}

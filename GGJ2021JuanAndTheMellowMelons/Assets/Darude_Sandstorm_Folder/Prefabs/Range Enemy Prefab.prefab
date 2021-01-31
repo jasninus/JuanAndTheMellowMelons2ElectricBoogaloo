@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7833021808388175347}
   - component: {fileID: 7833021808388175346}
   - component: {fileID: 7833021808388175354}
+  - component: {fileID: -3048683871470095812}
   m_Layer: 3
   m_Name: Range Enemy Prefab
   m_TagString: Enemy
@@ -193,3 +194,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInRange: 0
+  Health: 40
+--- !u!114 &-3048683871470095812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833021808388175344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a700545c287c30448aa1828934c00e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

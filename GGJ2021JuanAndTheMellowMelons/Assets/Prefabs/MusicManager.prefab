@@ -240,8 +240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music:
-  - {fileID: 8300000, guid: 72e788ec3028d7240b11ffcf62eed19d, type: 3}
+  - {fileID: 8300000, guid: 3451a5f075f546647b4e8a9fd700e73d, type: 3}
   - {fileID: 8300000, guid: e3323116b475b6d45a03821d1cae3392, type: 3}
   - {fileID: 8300000, guid: 3915060e761c3b748a7e744fad6e44c4, type: 3}
   - {fileID: 8300000, guid: e2c21d6cd93fadb40ae9a48acf79f20e, type: 3}
-  crossfadeTime: 2
+  crossfadeTime: 3
