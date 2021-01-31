@@ -111,6 +111,8 @@ namespace UnityTemplateProjects
         {
             // Exit Sample  
 
+
+
             if (Input.GetKey(KeyCode.Escape))
             {
                 Application.Quit();

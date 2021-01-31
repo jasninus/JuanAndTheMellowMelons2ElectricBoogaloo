@@ -10,6 +10,10 @@ public class CombatSequence : MonoBehaviour
     [SerializeField] private string musicManagerTag = "MusicManager";
     private MusicManager music;
 
+    //CameraSwap
+    public Camera camera1;
+    public Camera cameraCombat;
+
     private void Awake()
     {
         GameObject musicManager = GameObject.FindWithTag(musicManagerTag);
@@ -29,6 +33,8 @@ public class CombatSequence : MonoBehaviour
 
     private void Start()
     {
+
+        camera1.GetComponent<Camera>().enabled = !camera1.GetComponent<Camera>().enabled;
         DeactivateAllChildren();
         rewardItem.GetComponent<IActivatable>().AddToCallback(ActivateCombat);
     }
@@ -49,7 +55,10 @@ public class CombatSequence : MonoBehaviour
         music?.StartCombatMusic();
         ActivateEnemies();
         SetBlockingObjectsState(true);
-        Debug.Log("Fight!");
+
+        //print("i'm in 2");
+        camera1.GetComponent<Camera>().enabled = false;
+        cameraCombat.GetComponent<Camera>().enabled = true;
     }
 
     private void ActivateEnemies()
@@ -87,5 +96,9 @@ public class CombatSequence : MonoBehaviour
         SetBlockingObjectsState(false);
         rewardItem.SetActive(true);
         rewardItem.GetComponent<IActivatable>()?.Activate();
+
+        //print("i'm in 1");
+        camera1.GetComponent<Camera>().enabled = true;
+        cameraCombat.GetComponent<Camera>().enabled = false;
     }
 }
