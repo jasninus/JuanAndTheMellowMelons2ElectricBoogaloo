@@ -38,6 +38,11 @@ public class PlayerCore : MonoBehaviour, IDamageable, IHealable
         if (Input.GetKeyDown(KeyCode.I))
         {
             UnlockedSpells.AddSpell<ShieldSpell>();
+		}
+		
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            UnlockedSpells.AddSpell<PoisionBallSpell>();
         }
     }
 
