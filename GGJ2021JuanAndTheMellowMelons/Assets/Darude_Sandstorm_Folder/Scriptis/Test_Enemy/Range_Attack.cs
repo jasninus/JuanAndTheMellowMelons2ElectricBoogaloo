@@ -7,8 +7,6 @@ using UnityEngine.Serialization;
 public class Range_Attack : Enemy_Base_Attack
 {
     [SerializeField] private Projectile projectilePrefab;
-    [SerializeField] private Transform targetTransform;
-    [SerializeField] private Transform AttackPosition;
     [SerializeField] private float projectileSpeed = 15;
     
     public Range_Attack(float damage) : base(damage)
