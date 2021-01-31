@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 7833021808388175352}
   - component: {fileID: 7833021808388175355}
   - component: {fileID: 7833021808388175347}
-  - component: {fileID: 7833021808388175346}
   - component: {fileID: 7833021808388175354}
+  - component: {fileID: -4988971553991757887}
   m_Layer: 3
   m_Name: Melee Enemy
   m_TagString: Enemy
@@ -163,28 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
---- !u!114 &7833021808388175346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7833021808388175344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180b9eb5081800749b8978e3a2520760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
-  Enemy: {fileID: 7833021808388175344}
-  targetTransform: {fileID: 0}
-  Player:
-    serializedVersion: 2
-    m_Bits: 0
-  AttackPosition: {fileID: 0}
-  projectileSpeed: -1
-  MeleeDamage: 20
-  AttackRange: 0.5
 --- !u!114 &7833021808388175354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +177,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   IsInRange: 0
+--- !u!114 &-4988971553991757887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833021808388175344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ed4f216b75abd42aa2c2b3d294b8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  targetLocation: {fileID: 0}
+  player:
+    serializedVersion: 2
+    m_Bits: 0
+  weaponPosition: {fileID: 0}
+  meleeRange: 0
 --- !u!1 &8207826029025792433
 GameObject:
   m_ObjectHideFlags: 0
