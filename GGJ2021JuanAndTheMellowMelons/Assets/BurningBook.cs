@@ -26,11 +26,7 @@ public class BurningBook : MonoBehaviour, IActivatable
     public void Activate()
     {
         anim.SetTrigger("Burning");
-
-        if (booksCollected >= 6)
-        {
-            SceneManager.LoadScene(2);
-        }
+        Destroy(gameObject, 5);
     }
 
     private void OnTriggerEnter(Collider other)
