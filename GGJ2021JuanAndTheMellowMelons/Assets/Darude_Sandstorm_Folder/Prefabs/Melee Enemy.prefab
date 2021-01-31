@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 7833021808388175352}
   - component: {fileID: 7833021808388175355}
   - component: {fileID: 7833021808388175347}
-  - component: {fileID: 7833021808388175354}
   - component: {fileID: -4988971553991757887}
+  - component: {fileID: 2684010135510207620}
   m_Layer: 3
   m_Name: Melee Enemy
   m_TagString: Enemy
@@ -163,20 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
---- !u!114 &7833021808388175354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7833021808388175344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478d0e28bf2e40d46bd9bab10c08a064, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  IsInRange: 0
 --- !u!114 &-4988971553991757887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,11 +177,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   targetLocation: {fileID: 0}
+  weaponPosition: {fileID: 0}
+  meleeRange: 0
   player:
     serializedVersion: 2
     m_Bits: 0
-  weaponPosition: {fileID: 0}
-  meleeRange: 0
+--- !u!114 &2684010135510207620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833021808388175344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478d0e28bf2e40d46bd9bab10c08a064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  IsInRange: 0
 --- !u!1 &8207826029025792433
 GameObject:
   m_ObjectHideFlags: 0

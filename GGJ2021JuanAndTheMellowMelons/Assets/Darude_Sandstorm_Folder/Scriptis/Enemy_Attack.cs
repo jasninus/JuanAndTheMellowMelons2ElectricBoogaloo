@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Enemy_Attack : StateMachineBehaviour
 {
-    [SerializeField] private Range_Attack attack;
+    [SerializeField] private Enemy_Base_Attack attack;
     [SerializeField] private Test_Enemy_Script enemyScript;
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        attack = animator.GetComponent<Range_Attack>();
+        attack = animator.GetComponent<Enemy_Base_Attack>();
         enemyScript = animator.GetComponent<Test_Enemy_Script>();
         attack.StartCoroutine(attack.Attack());
     }

@@ -6,7 +6,7 @@ public abstract class Enemy_Base_Attack : MonoBehaviour
 {
     [SerializeField] protected float damage;
     [SerializeField] protected Transform targetLocation;
-
+    [SerializeField] private bool IsInRange = false;
     protected Enemy_Base_Attack(float damage)
     {
         this.damage = damage;
@@ -14,5 +14,5 @@ public abstract class Enemy_Base_Attack : MonoBehaviour
     }
 
     public abstract IEnumerator Attack();
-
+    
 }

@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class Test_Enemy_Script : MonoBehaviour, IDamageable
 {
-
-    [SerializeField] [CanBeNull] private FireballProjectile projectile;
-    
     public bool IsInRange = false;
     private float Health = 40;
+
+    void Update()
+    {
+        if (Health < 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
