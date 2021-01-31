@@ -58,7 +58,7 @@ public class CombatSequence : MonoBehaviour
         ActivateEnemies();
         SetBlockingObjectsState(true);
 
-        print("i'm in 2");
+        //print("i'm in 2");
         camera1.GetComponent<Camera>().enabled = false;
         cameraCombat.GetComponent<Camera>().enabled = true;
     }
@@ -99,7 +99,7 @@ public class CombatSequence : MonoBehaviour
         rewardItem.SetActive(true);
         rewardItem.GetComponent<IActivatable>()?.Activate();
 
-        print("i'm in 1");
+        //print("i'm in 1");
         camera1.GetComponent<Camera>().enabled = true;
         cameraCombat.GetComponent<Camera>().enabled = false;
     }
