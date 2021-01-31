@@ -6,16 +6,8 @@ using UnityEngine;
 public class Test_Enemy_Script : MonoBehaviour, IDamageable
 {
     public bool IsInRange = false;
-    private float Health = 40;
-
-    void Update()
-    {
-        if (Health < 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
+    [SerializeField] private float Health = 40;
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -36,6 +28,11 @@ public class Test_Enemy_Script : MonoBehaviour, IDamageable
     {
         Health -= damage;
         Debug.Log("hit");
+        
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

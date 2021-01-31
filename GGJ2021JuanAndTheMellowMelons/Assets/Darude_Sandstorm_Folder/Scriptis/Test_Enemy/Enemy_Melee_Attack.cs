@@ -7,7 +7,7 @@ public class Enemy_Melee_Attack : Enemy_Base_Attack
 {
     [SerializeField] private Transform weaponPosition;
     [SerializeField] private float meleeRange;
-    [SerializeField] private LayerMask player;
+    [SerializeField] private LayerMask playerLayerMask;
     
     public Enemy_Melee_Attack(float damage) : base(damage)
     {
@@ -17,10 +17,10 @@ public class Enemy_Melee_Attack : Enemy_Base_Attack
     public override IEnumerator Attack()
     {
         yield return new WaitForSeconds(1.0f);
-        Collider[] hitPlayer = Physics.OverlapSphere(weaponPosition.position, meleeRange, player);
+        Collider[] hitPlayer = Physics.OverlapSphere(weaponPosition.position, meleeRange, playerLayerMask);
         foreach (Collider collider1 in hitPlayer)
         {
-            Debug.Log("Player hit");
+            Debug.Log("hit");
         }
     }
 
