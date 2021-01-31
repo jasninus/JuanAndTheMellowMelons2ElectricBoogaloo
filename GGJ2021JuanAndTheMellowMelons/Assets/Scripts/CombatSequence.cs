@@ -12,7 +12,11 @@ public class CombatSequence : MonoBehaviour
 
     private void Awake()
     {
-        music = GameObject.FindWithTag(musicManagerTag).GetComponent<MusicManager>();
+        GameObject musicManager = GameObject.FindWithTag(musicManagerTag);
+        if (musicManager)
+        {
+            music = musicManager.GetComponent<MusicManager>();
+        }
     }
 
     private void Update()
@@ -41,7 +45,7 @@ public class CombatSequence : MonoBehaviour
 
     public void ActivateCombat()
     {
-        music.StartCombatMusic();
+        music?.StartCombatMusic();
         ActivateEnemies();
         SetBlockingObjectsState(true);
     }
@@ -77,7 +81,7 @@ public class CombatSequence : MonoBehaviour
 
     public void DeactivateCombat()
     {
-        music.StopCombatMusic();
+        music?.StopCombatMusic();
         SetBlockingObjectsState(false);
         rewardItem.SetActive(true);
         rewardItem.GetComponent<IActivatable>()?.Activate();
