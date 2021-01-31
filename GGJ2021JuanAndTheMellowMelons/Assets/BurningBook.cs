@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
 public class BurningBook : MonoBehaviour, IActivatable
@@ -14,14 +15,22 @@ public class BurningBook : MonoBehaviour, IActivatable
 
     private bool activated;
 
+    private static uint booksCollected;
+
     private void Awake()
     {
+        SceneManager.sceneLoaded += ResetBooksCollected;
         anim = GetComponent<Animator>();
     }
 
     public void Activate()
     {
         anim.SetTrigger("Burning");
+
+        if (booksCollected >= 6)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,6 +40,7 @@ public class BurningBook : MonoBehaviour, IActivatable
             onActivated?.Invoke();
             Debug.Log("Invoked onActivated");
             activated = true;
+            booksCollected++;
 
             switch (spellIndex)
             {
@@ -62,6 +72,11 @@ public class BurningBook : MonoBehaviour, IActivatable
                     break;
             }
         }
+    }
+
+    private void ResetBooksCollected(Scene scene, LoadSceneMode loadMode)
+    {
+        booksCollected = 0;
     }
 
     public void AddToCallback(UnityAction method)
