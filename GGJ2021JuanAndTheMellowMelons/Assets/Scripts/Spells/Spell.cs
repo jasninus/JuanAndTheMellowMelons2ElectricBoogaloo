@@ -21,6 +21,7 @@ public abstract class Spell : MonoBehaviour
         {
             Cast(caster, power);
             remainingCooldown = cooldown;
+            caster.Mana -= GetManaCost(power);
         }
     }
 

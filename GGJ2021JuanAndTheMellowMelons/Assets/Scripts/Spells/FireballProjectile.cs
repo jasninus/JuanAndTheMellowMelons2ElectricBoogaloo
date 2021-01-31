@@ -10,6 +10,14 @@ public class FireballProjectile : Projectile
     {
         ApplyDamage();
         CreateSFX();
+        Destroy(gameObject);
+    }
+
+    protected override void OnTriggerHit(Collider other)
+    {
+        ApplyDamage();
+        CreateSFX();
+        Destroy(gameObject);
     }
 
     private void ApplyDamage()

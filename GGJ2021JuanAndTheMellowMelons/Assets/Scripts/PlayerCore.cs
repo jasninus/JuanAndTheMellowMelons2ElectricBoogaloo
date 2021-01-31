@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class PlayerCore : MonoBehaviour, IDamageable, IHealable
 {
-    [SerializeField] private float health = 100;
+    [SerializeField] private float startingHealth = 100;
+    private float health;
+
+    public float HealthPercentage => health / startingHealth;
 
     private bool invulnerable;
     public bool Invulnerable
     {
         get => invulnerable;
         set => invulnerable = value;
+    }
+
+    private void Awake()
+    {
+        health = startingHealth;
     }
 
     private void Update()
