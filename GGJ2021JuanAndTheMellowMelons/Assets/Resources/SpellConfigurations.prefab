@@ -107,7 +107,11 @@ MonoBehaviour:
   manaCost: 20
   upcastCost: 10
   cooldown: 9
+<<<<<<< Updated upstream
   icon: {fileID: 21300000, guid: a89a472cf7b088944bc1c63f35388595, type: 3}
+=======
+  icon: {fileID: 0}
+>>>>>>> Stashed changes
   moonBeamPrefab: {fileID: 7126738759257269494, guid: 9336457a685854345837491883a20ba6,
     type: 3}
   moonBeamDuration: 3
