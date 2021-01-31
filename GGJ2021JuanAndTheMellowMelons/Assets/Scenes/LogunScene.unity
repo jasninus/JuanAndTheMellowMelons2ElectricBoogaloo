@@ -802,80 +802,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535513405}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1693081390
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.45615
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.8033876
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418970470929041457, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7126738759257269494, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_Name
-      value: MoonBeam
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801750801269171661, guid: 9336457a685854345837491883a20ba6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9336457a685854345837491883a20ba6, type: 3}
 --- !u!1 &1842038135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1191,7 @@ PrefabInstance:
     - target: {fileID: 8189970901740305344, guid: 6f5922dec43c42e418e7c875a684d630,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8189970901740305344, guid: 6f5922dec43c42e418e7c875a684d630,
         type: 3}

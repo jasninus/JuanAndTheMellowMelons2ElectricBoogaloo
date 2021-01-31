@@ -4,6 +4,10 @@ public abstract class Spell : MonoBehaviour
 {
     [SerializeField] protected float manaCost, upcastCost, cooldown;
     private float remainingCooldown, cooldownReductionModifier = 1;
+    public float CooldownPercentage => 1 - remainingCooldown / cooldown;
+
+    [SerializeField] private Sprite icon;
+    public Sprite Icon => icon;
 
     public float CooldownReductionModifier
     {
@@ -23,7 +27,6 @@ public abstract class Spell : MonoBehaviour
     protected void Update()
     {
         remainingCooldown -= Time.deltaTime * cooldownReductionModifier;
-        Debug.Log("Decreasing cooldown");
     }
 
     protected virtual float GetManaCost(float power) => manaCost + upcastCost * power;

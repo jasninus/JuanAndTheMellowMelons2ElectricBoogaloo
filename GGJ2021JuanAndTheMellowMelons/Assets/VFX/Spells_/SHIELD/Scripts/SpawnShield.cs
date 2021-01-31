@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpawnShield : MonoBehaviour
 {
     public GameObject shieldVFX;
-    public Vector3 shieldOffset;  
+    public Vector3 shieldOffset;
+    //public AudioSource audioData;
+
 
 
     void Update()
@@ -14,6 +16,8 @@ public class SpawnShield : MonoBehaviour
         {
             var vfx = Instantiate(shieldVFX, transform) as GameObject;
             vfx.transform.position += shieldOffset;
+            //audioData = GetComponent<AudioSource>();
+            //audioData.Play(0);
             Destroy(vfx, 8.5f);
         }        
     }
