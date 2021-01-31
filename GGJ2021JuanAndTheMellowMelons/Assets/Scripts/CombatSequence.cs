@@ -33,10 +33,9 @@ public class CombatSequence : MonoBehaviour
 
     private void Start()
     {
-
-        camera1.GetComponent<Camera>().enabled = !camera1.GetComponent<Camera>().enabled;
         DeactivateAllChildren();
         rewardItem.GetComponent<IActivatable>().AddToCallback(ActivateCombat);
+        camera1.GetComponent<Camera>().enabled = !camera1.GetComponent<Camera>().enabled;
     }
 
     private void DeactivateAllChildren()
@@ -56,7 +55,7 @@ public class CombatSequence : MonoBehaviour
         ActivateEnemies();
         SetBlockingObjectsState(true);
 
-        //print("i'm in 2");
+        print("i'm in 2");
         camera1.GetComponent<Camera>().enabled = false;
         cameraCombat.GetComponent<Camera>().enabled = true;
     }
@@ -69,6 +68,8 @@ public class CombatSequence : MonoBehaviour
         {
             enemy.gameObject.SetActive(true);
             enemy.onDestroy += EnemyDied;
+
+            
         }
     }
 
@@ -77,6 +78,9 @@ public class CombatSequence : MonoBehaviour
         if (enemyParent.GetComponentsInChildren<MBWithCallbacks>(true).Length == 1)
         {
             DeactivateCombat();
+
+
+            
         }
     }
 
@@ -96,9 +100,9 @@ public class CombatSequence : MonoBehaviour
         SetBlockingObjectsState(false);
         rewardItem.SetActive(true);
         rewardItem.GetComponent<IActivatable>()?.Activate();
-
-        //print("i'm in 1");
+        print("i'm in 1");
         camera1.GetComponent<Camera>().enabled = true;
         cameraCombat.GetComponent<Camera>().enabled = false;
+
     }
 }
