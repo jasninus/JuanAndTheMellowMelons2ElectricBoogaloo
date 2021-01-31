@@ -174,10 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180b9eb5081800749b8978e3a2520760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
+  damage: 0
+  targetLocation: {fileID: 0}
+  IsInRange: 0
+  projectilePrefab: {fileID: 226320160460315330, guid: 5054fd0962daeba41a46f7baa0d99794,
+    type: 3}
   projectileSpeed: -1
-  Enemy: {fileID: 7833021808388175344}
-  targetTransform: {fileID: 0}
 --- !u!114 &7833021808388175354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,5 +192,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478d0e28bf2e40d46bd9bab10c08a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
   IsInRange: 0

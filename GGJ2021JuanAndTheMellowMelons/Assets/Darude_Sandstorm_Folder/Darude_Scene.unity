@@ -675,7 +675,8 @@ PrefabInstance:
         type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 249398751}
+      objectReference: {fileID: 226320160460315330, guid: 5054fd0962daeba41a46f7baa0d99794,
+        type: 3}
     - target: {fileID: 7833021808388175347, guid: efc560cef61057948a425321ff465625,
         type: 3}
       propertyPath: _camera
@@ -1112,7 +1113,8 @@ PrefabInstance:
         type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 249398751}
+      objectReference: {fileID: 226320160460315330, guid: 5054fd0962daeba41a46f7baa0d99794,
+        type: 3}
     - target: {fileID: 7833021808388175347, guid: efc560cef61057948a425321ff465625,
         type: 3}
       propertyPath: _camera

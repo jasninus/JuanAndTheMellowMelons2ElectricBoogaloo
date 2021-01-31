@@ -8,12 +8,12 @@ public class FireballProjectile : Projectile
 
     protected override void OnColliderHit(Collision other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
+        //if (other.gameObject.CompareTag("Enemy"))
+        //{
             ApplyDamage();
             CreateSFX();
             Destroy(gameObject);
-        }
+        //}
     }
 
     private void ApplyDamage()
