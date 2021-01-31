@@ -6,11 +6,13 @@ public class PlayerMove : MonoBehaviour
 {
     private Rigidbody rigidBody;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private AudioSource audiosTrack;
+    [SerializeField] private AudioClip[] sfx;
     [SerializeField] private bool grounded;
     [SerializeField] private float baseMoveSpeed = 6f, baseSprintSpeedIncrease = 6f, jumpForce = 12f, groundedCheckRadius = 0.4f;
     private float moveSpeed, sprintSpeedIncrease;
-
-    private bool sprinting;
+    private int sprintSfxTrigger = 1;
+    private bool sprintState = false;
 
     private void Awake()
     {
@@ -31,6 +33,7 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
+            StartCoroutine(PlayerSFX.StartSFX(0.5f, 0, audiosTrack, sfx[0]));
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
         }
 
@@ -67,7 +70,25 @@ public class PlayerMove : MonoBehaviour
 
     private void SprintInput()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift)) { moveSpeed += sprintSpeedIncrease; }
-        else if (Input.GetKeyUp(KeyCode.LeftShift)) { moveSpeed -= sprintSpeedIncrease; }
+        if (Input.GetKeyDown(KeyCode.LeftShift)) 
+        {
+            sprintState = true;
+            moveSpeed += sprintSpeedIncrease;
+            if (sprintState && sprintSfxTrigger == 1)
+            {
+                sprintSfxTrigger = 0;
+                StartCoroutine(PlayerSFX.StartSFX(0.3f, 1, audiosTrack, sfx[1]));
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift)) 
+        {
+            sprintState = false;
+            moveSpeed -= sprintSpeedIncrease;
+            if (!sprintState && sprintSfxTrigger == 0)
+            {
+                sprintSfxTrigger = 1;
+                StartCoroutine(PlayerSFX.StartSFX(0.4f, 1, audiosTrack, sfx[2]));
+            }
+        }
     }
 }
