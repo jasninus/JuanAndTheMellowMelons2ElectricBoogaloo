@@ -6,9 +6,14 @@ using UnityEngine.SceneManagement;
 public class MenuControl : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void ButtonStart()
+    public void ButtonLoadScene(int sceneIndex)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneIndex);
+
+        if (sceneIndex == 1)
+        {
+            SceneManager.LoadScene(3, LoadSceneMode.Additive);
+        }
     }
 
     // Update is called once per frame

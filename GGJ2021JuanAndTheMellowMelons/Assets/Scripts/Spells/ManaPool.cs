@@ -7,7 +7,13 @@ public class ManaPool : MonoBehaviour
     [SerializeField] private float startingMana, maxMana, manaRegen;
     private float mana;
 
-    public float Mana => mana;
+    public float Mana 
+    {
+        get => mana;
+        set => mana = value;
+    }
+
+    public float ManaPercentage => mana / startingMana;
 
     private void Update()
     {

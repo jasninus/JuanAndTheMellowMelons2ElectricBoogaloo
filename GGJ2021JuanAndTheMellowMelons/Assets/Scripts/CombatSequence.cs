@@ -7,23 +7,41 @@ public class CombatSequence : MonoBehaviour
 {
     [SerializeField] private GameObject enemyParent, blockingObjectsParent, rewardItem;
 
-    private void Update()
+    [SerializeField] private string musicManagerTag = "MusicManager";
+    private MusicManager music;
+
+    //CameraSwap
+    public Camera camera1;
+    public Camera cameraCombat;
+
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        GameObject musicManager = GameObject.FindWithTag(musicManagerTag);
+        if (musicManager)
         {
-            ActivateCombat();
+            music = musicManager.GetComponent<MusicManager>();
         }
     }
+
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.O))
+    //    {
+    //        ActivateCombat();
+    //    }
+    //}
 
     private void Start()
     {
         DeactivateAllChildren();
+        rewardItem.GetComponent<IActivatable>().AddToCallback(ActivateCombat);
+        camera1.GetComponent<Camera>().enabled = !camera1.GetComponent<Camera>().enabled;
     }
 
     private void DeactivateAllChildren()
     {
-        List<GameObject> toActivate = enemyParent.GetComponentsInChildren<Transform>(true).Select(t => t.gameObject).Skip(1).Concat(blockingObjectsParent.GetComponentsInChildren<Transform>(true).Select(t => t.gameObject).Skip(1)).ToList();
-        toActivate.Add(rewardItem);
+        List<GameObject> toActivate = enemyParent.GetComponentsInChildren<Transform>(true).Select(t => t.gameObject).Skip(1)/*.Concat(blockingObjectsParent.GetComponentsInChildren<Transform>(true).Select(t => t.gameObject).Skip(1))*/.ToList();
+        //toActivate.Add(rewardItem);
 
         foreach (GameObject go in toActivate)
         {
@@ -33,8 +51,13 @@ public class CombatSequence : MonoBehaviour
 
     public void ActivateCombat()
     {
+        music?.StartCombatMusic();
         ActivateEnemies();
         SetBlockingObjectsState(true);
+
+        print("i'm in 2");
+        camera1.GetComponent<Camera>().enabled = false;
+        cameraCombat.GetComponent<Camera>().enabled = true;
     }
 
     private void ActivateEnemies()
@@ -45,6 +68,8 @@ public class CombatSequence : MonoBehaviour
         {
             enemy.gameObject.SetActive(true);
             enemy.onDestroy += EnemyDied;
+
+            
         }
     }
 
@@ -53,6 +78,9 @@ public class CombatSequence : MonoBehaviour
         if (enemyParent.GetComponentsInChildren<MBWithCallbacks>(true).Length == 1)
         {
             DeactivateCombat();
+
+
+            
         }
     }
 
@@ -68,8 +96,13 @@ public class CombatSequence : MonoBehaviour
 
     public void DeactivateCombat()
     {
+        music?.StopCombatMusic();
         SetBlockingObjectsState(false);
         rewardItem.SetActive(true);
         rewardItem.GetComponent<IActivatable>()?.Activate();
+        print("i'm in 1");
+        camera1.GetComponent<Camera>().enabled = true;
+        cameraCombat.GetComponent<Camera>().enabled = false;
+
     }
 }

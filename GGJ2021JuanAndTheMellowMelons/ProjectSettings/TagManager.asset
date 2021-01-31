@@ -6,39 +6,42 @@ TagManager:
   tags:
   - ActionBar
   - grounded
+  - Enemy
+  - Fireball
+  - MusicManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  -
+  - Enemy
   - Water
   - UI
-  -
-  -
+  - Player
+  - 
   - PostProcessing
-  -
-  -
-  -
-  -
-  - Invisible Wall
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
+  - Grounded
+  - 
+  - Water
+  - UI
+  - PlayerFireball
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0

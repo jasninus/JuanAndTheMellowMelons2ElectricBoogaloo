@@ -1,23 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class Test_Enemy_Script : MonoBehaviour
+public class Test_Enemy_Script : MonoBehaviour, IDamageable
 {
-
-    [SerializeField] private Transform _enemyTransformtransform;
-    [SerializeField] private Transform _playerTransform;
-    [SerializeField] private Sprite[] _sprite;
-
-    // Start is called before the first frame update
-    void Start()
+    public bool IsInRange = false;
+    [SerializeField] private float Health = 40;
+    
+    void OnTriggerEnter(Collider other)
     {
-        _sprite = gameObject.GetComponent<Sprite[]>();
+        if (other.CompareTag("Player"))
+        {
+            IsInRange = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("Player"))
+        {
+            IsInRange = false;
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        Health -= damage;
+        Debug.Log("hit");
         
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
 }

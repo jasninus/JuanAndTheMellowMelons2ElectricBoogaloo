@@ -8,7 +8,11 @@ public class SpellCaster : MonoBehaviour
 
     [SerializeField] private Transform projectileSpellSpawn;
 
-    public float Mana => mana.Mana;
+    public float Mana
+    {
+        get => mana.Mana;
+        set => mana.Mana = value;
+    }
 
     // Shallow copy, so not protected
     public Transform ProjectileSpellSpawn => projectileSpellSpawn;
