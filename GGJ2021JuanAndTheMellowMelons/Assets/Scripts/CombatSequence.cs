@@ -68,6 +68,8 @@ public class CombatSequence : MonoBehaviour
         {
             enemy.gameObject.SetActive(true);
             enemy.onDestroy += EnemyDied;
+
+            
         }
     }
 
@@ -76,6 +78,9 @@ public class CombatSequence : MonoBehaviour
         if (enemyParent.GetComponentsInChildren<MBWithCallbacks>(true).Length == 1)
         {
             DeactivateCombat();
+
+
+            
         }
     }
 
@@ -95,9 +100,9 @@ public class CombatSequence : MonoBehaviour
         SetBlockingObjectsState(false);
         rewardItem.SetActive(true);
         rewardItem.GetComponent<IActivatable>()?.Activate();
-
         print("i'm in 1");
         camera1.GetComponent<Camera>().enabled = true;
         cameraCombat.GetComponent<Camera>().enabled = false;
+
     }
 }
