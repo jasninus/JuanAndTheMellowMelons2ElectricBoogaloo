@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerCore : MonoBehaviour, IDamageable, IHealable
 {
     [SerializeField] private float startingHealth = 100;
@@ -68,6 +68,7 @@ public class PlayerCore : MonoBehaviour, IDamageable, IHealable
         if (health <= 0)
         {
             Debug.Log("Dummy player is ded");
+            SceneManager.LoadScene(2);
         }
     }
 
