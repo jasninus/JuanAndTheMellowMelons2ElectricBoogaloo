@@ -25,6 +25,10 @@ public class PlayerAiming : MonoBehaviour
         }
     }
 
+    private Vector3 AimPosNormal(Vector3 aimingPos) { return aimingPos.normalized; }
+
+    private void AimMarkerInDirection(GameObject instancedAimer, Vector3 aimingPos) => instancedAimer.transform.localRotation = Quaternion.LookRotation(AimPosNormal(aimingPos));
+
     private bool AimerFound()
     {
         if (GameObject.Find(aimerName))
@@ -39,6 +43,7 @@ public class PlayerAiming : MonoBehaviour
         if (!AimerFound() && Input.GetMouseButtonDown(1))
         {
             instancedAimer = (GameObject)Instantiate(aimer, aimingPos, Quaternion.identity);
+            AimMarkerInDirection(instancedAimer, aimingPos);
             //Debug.Log("Aimer spawned");
         }
     }
