@@ -16,6 +16,6 @@ public class S_Test_Enemy_Bilboarding : MonoBehaviour
     void LateUpdate()
     {
         transform.LookAt(_camera.transform);
-        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - 180, 0);
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
     }
 }

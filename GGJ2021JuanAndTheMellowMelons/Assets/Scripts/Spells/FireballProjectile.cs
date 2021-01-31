@@ -41,4 +41,6 @@ public class FireballProjectile : Projectile
     {
         vfx.SpawnVFX();
     }
+    
+    
 }
