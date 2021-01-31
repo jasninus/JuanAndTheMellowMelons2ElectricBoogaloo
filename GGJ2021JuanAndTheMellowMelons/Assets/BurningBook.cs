@@ -22,6 +22,7 @@ public class BurningBook : MonoBehaviour, IActivatable
     public void Activate()
     {
         anim.SetTrigger("Burning");
+        Destroy(gameObject, 5);
     }
 
     private void OnTriggerEnter(Collider other)

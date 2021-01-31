@@ -11,7 +11,7 @@ public class PlayerAiming : MonoBehaviour
     static public Vector3 AimerPos()
     {
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var ray = Camera.allCameras[0].ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
